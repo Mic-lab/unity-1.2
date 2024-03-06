@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     public float speed = 10.0f;
     public float xRange = 10.0f;
+    public int maxHealth = 10;
+    public int health = 10;
 
     public GameObject projectilePrefab;
 
@@ -36,26 +38,20 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
-        // Rotate towards mouse
-        //Vector3 mousePos = Input.mousePosition;
-        // Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y));
-        Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 0.0f, Input.mousePosition.y));
-        float deltaX = mousePos.x - transform.position.x;
-        float deltaY = mousePos.z - transform.position.z;
-        float projectileAngle = Mathf.Atan2(deltaY, deltaX); /// Mathf.PI * 180;
-        print(projectileAngle);
-        // print(projectileAngle / Mathf.PI * 180);
-        // mousePos = cam.ScreenToWorldPoint(Input.mousePosition.x);
-        // Vector2 direction = mousePos
-
-        // Rotate towards mouse
-
         // Shoot
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-            projectile.GetComponent<MoveToAngle>().angle = projectileAngle;
-            //Instantiate(projectilePrefab, transform.position, Quaternion.Euler(Vector3(0, 0, angle));
         }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "animal"){
+            Destroy(other.gameObject);
+            health -= 1;
+        }
+
     }
 }
