@@ -202,3 +202,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleManager: {fileID: 3110101401148805014, guid: c905af38164029745aba984616004dac, type: 3}
+  player: {fileID: 1596877881361505199, guid: d8be0c4c418159042bcac0ce93d9d7da, type: 3}

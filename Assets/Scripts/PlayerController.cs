@@ -11,13 +11,14 @@ public class PlayerController : MonoBehaviour
     public float xRange = 10.0f;
     public int maxHealth = 10;
     public int health = 10;
+    public int points = 0;
 
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        points = 0;
     }
 
     // Update is called once per frame
@@ -54,4 +55,5 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 }

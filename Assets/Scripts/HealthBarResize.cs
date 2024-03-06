@@ -15,11 +15,11 @@ public class HealthBarResize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // int health = GameObject.Find("Player").GetComponent<PlayerController>().health;
-        // int maxHealth = GameObject.Find("Player").GetComponent<PlayerController>().maxHealth;
-        // float newWidth = health / maxHealth * startingWidth;
-        // print(health + " / " + maxHealth + " * " + startingWidth + " = " + newWidth);
-        // healthBarRect.sizeDelta = new Vector2(newWidth, healthBarRect.sizeDelta.y);
+        int health = GameObject.Find("Player").GetComponent<PlayerController>().health;
+        int maxHealth = GameObject.Find("Player").GetComponent<PlayerController>().maxHealth;
+        float newWidth = (float)health / (float)maxHealth * startingWidth;
+        print(health + " / " + maxHealth + " * " + startingWidth + " = " + newWidth);
+        healthBarRect.sizeDelta = new Vector2(newWidth, healthBarRect.sizeDelta.y);
 
     }
 }
